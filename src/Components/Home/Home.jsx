@@ -25,13 +25,20 @@ const Home = () => {
         e.preventDefault();
         // validate phone number and then show step 3 else show error
 
-        setSteps({
-            step1: false,
-            step2: false,
-            step3: true,
-            step4: false,
-            step5: false,
-        });
+        if (e.target.value.length !== 11) {
+            document.getElementById("errphone").innerHTML = "Phone number must be 11 digits";
+        } else if (e.target.value !== "08099772916") {
+            document.getElementById("errphone").innerHTML = "This account is not associated with any account on NestPay. Create an account";
+        }
+        else {
+            setSteps({
+                step1: false,
+                step2: false,
+                step3: true,
+                step4: false,
+                step5: false,
+            })
+        }
     };
     const handleStep3 = (e) => {
         // check if the value is 6 digits and then show step 4 else show error
@@ -50,7 +57,7 @@ const Home = () => {
     };
     const handleStep4 = (e) => {
         // check if the value is 6 digits and then show step 4 else show error
-        if (e.target.value.length === 6) {
+        if (e.target.value.length === 4) {
 
             setSteps({
                 step1: false,
@@ -60,7 +67,7 @@ const Home = () => {
                 step5: true,
             })
         } else {
-            document.getElementById("errpin").innerHTML = "OTP must be 6 digits";
+            document.getElementById("errpin").innerHTML = "OTP must be 4 digits";
         }
     };
     return (
@@ -83,9 +90,10 @@ const Home = () => {
                     <Inputs
                         title="Enter Phone number connected with NestPay"
                         placeholder="Enter phone number"
-                        onChange={(e) => console.log(e.target.value)}
+                        onChange={handleStep2}
                     />
                     <button className="btn center bg-bk" onClick={handleStep2} >Request OTP</button>
+                    <span className="err" id="errphone"></span>
                 </form>
             )}
             {steps.step3 && (
