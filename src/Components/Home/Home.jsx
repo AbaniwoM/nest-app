@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, Button2, Inputs } from "../Inputs/Inputs";
-import Ok from "../../Assets/Ok.svg";
 import './Home.scss'
 
 const Home = () => {
