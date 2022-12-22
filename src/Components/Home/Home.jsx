@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Button2, Inputs } from "../Inputs/Inputs";
+import Ok from "../../Assets/Ok.svg";
 import './Home.scss'
 
 const Home = () => {
@@ -110,6 +111,13 @@ const Home = () => {
                     <span className="err" id="errpin"></span>
                 </form>
             )}
+            <div id="step5">
+                <div className="tick">
+                    <img src={Ok} alt="tick" />
+                </div>
+                <div>Your payment is successful</div>
+                <button className="nw-bn" onClick={() => console.log('clicked')}>Close Page</button>
+            </div>
         </div>
     );
 };
