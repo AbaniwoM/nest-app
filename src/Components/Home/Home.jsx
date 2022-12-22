@@ -1,27 +1,110 @@
-import React from 'react'
-import { Button, Button2 } from '../Inputs/Inputs'
+import React, { useState } from "react";
+import { Button, Button2, Inputs } from "../Inputs/Inputs";
 import Ok from "../../Assets/Ok.svg";
 import './Home.scss'
 
 const Home = () => {
+    // show step 2 when button is clicked and hide step 1
+    const [steps, setSteps] = useState({
+        step1: true,
+        step2: false,
+        step3: false,
+        step4: false,
+        step5: false,
+    });
+
+    const handleStep1 = () => {
+        setSteps({
+            step1: false,
+            step2: true,
+            step3: false,
+            step4: false,
+            step5: false,
+        });
+    };
+    const handleStep2 = (e) => {
+        e.preventDefault();
+        // validate phone number and then show step 3 else show error
+
+        setSteps({
+            step1: false,
+            step2: false,
+            step3: true,
+            step4: false,
+            step5: false,
+        });
+    };
+    const handleStep3 = (e) => {
+        // check if the value is 6 digits and then show step 4 else show error
+        if (e.target.value.length === 6) {
+
+            setSteps({
+                step1: false,
+                step2: false,
+                step3: false,
+                step4: true,
+                step5: false,
+            })
+        } else {
+            document.getElementById("errotp").innerHTML = "OTP must be 6 digits";
+        }
+    };
+    const handleStep4 = (e) => {
+        // check if the value is 6 digits and then show step 4 else show error
+        if (e.target.value.length === 6) {
+
+            setSteps({
+                step1: false,
+                step2: false,
+                step3: false,
+                step4: false,
+                step5: true,
+            })
+        } else {
+            document.getElementById("errpin").innerHTML = "OTP must be 6 digits";
+        }
+    };
     return (
-        <div className='home'>
-            <div id="step1">
-                <Button title='Pay with Card' onClick={() => console.log('clicked')} />
-                <Button title='Pay with Bank Transfer' onClick={() => console.log('clicked')} />
-                <Button2 className="bg-bk" title='Pay with NestPay' onClick={() => console.log('clicked')} />
-            </div>
+        <div className="home">
+            {steps.step1 && (
+                <form>
+                    <Button title="Pay with Card" />
+                    <Button title="Pay with Bank Transfer" />
+                    <Button2
+                        className="bg-bk"
+                        title="Pay with NestPay"
+                        onClick={handleStep1}
+                    />
+                </form>
+            )}
 
-            <div id="step5">
-                <div className="tick">
-                    <img src={Ok} alt="tick" />
-                </div>
-                <div>Your payment is successful</div>
-                <button className="nw-bn" onClick={() => console.log('clicked')}>Close Page</button>
-            </div>
-
+            {steps.step2 && (
+                <form>
+                    {" "}
+                    <Inputs
+                        title="Enter Phone number connected with NestPay"
+                        placeholder="Enter phone number"
+                        onChange={(e) => console.log(e.target.value)}
+                    />
+                    <button className="btn center bg-bk" onClick={handleStep2} >Request OTP</button>
+                </form>
+            )}
+            {steps.step3 && (
+                <form>
+                    {" "}
+                    <Inputs title="Enter OTP sent to your phone" placeholder="Enter OTP" onChange={handleStep3} />
+                    <span className="err" id="errotp"></span>
+                </form>
+            )}
+            {steps.step4 && (
+                <form>
+                    {" "}
+                    <Inputs title="Final Step: Enter Transaction Pin" placeholder="Pin" onChange={handleStep4} />
+                    <span className="err" id="errpin"></span>
+                </form>
+            )}
         </div>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;
