@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Button2, Inputs } from "../Inputs/Inputs";
-import "./Home.scss";
+import Ok from "../../Assets/Ok.svg";
+import './Home.scss'
 
 const Home = () => {
     // show step 2 when button is clicked and hide step 1
@@ -98,7 +99,7 @@ const Home = () => {
             {steps.step4 && (
                 <form>
                     {" "}
-                    <Inputs title="Enter Transaction Pin" placeholder="Pin" onChange={handleStep4} />
+                    <Inputs title="Final Step: Enter Transaction Pin" placeholder="Pin" onChange={handleStep4} />
                     <span className="err" id="errpin"></span>
                 </form>
             )}
