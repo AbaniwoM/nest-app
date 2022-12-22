@@ -21,7 +21,7 @@ export const Inputs = ({ onChange, title, placeholder }) => {
 export const Button = ({ title, onClick, className }) => {
     return (
 
-        <button className="btn" onClick={onClick}>{title} <img src={arrow} alt="" /> </button>
+        <Link to="" className="btn" onClick={onClick}>{title} <img src={arrow} alt="" /> </Link>
 
     )
 }
