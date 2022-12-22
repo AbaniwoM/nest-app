@@ -1,12 +1,27 @@
-.input {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.btn {
+  background-color: #eee;
+  color: #000;
+  padding: 12px 15px;
+  width: 280px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 600;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  &:hover {
+    background-color: #ccc;
+  }
 }
-
-.input input {
-    width: 26.2%;
-    height: 7vh;
-    border-radius: 10px;
-    padding-left: 10px;
+.bg-bk {
+  background-color: #000;
+  color: #fff;
+  width: 280px;
+  &:hover {
+    background-color: rgb(21, 21, 21);
+  }
 }
