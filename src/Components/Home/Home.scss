@@ -8,3 +8,20 @@
   align-items: center;
   padding: 1rem;
 }
+
+.nw-bn {
+  background-color: #000;
+  color: #fff;
+  padding: 13px 15px;
+  cursor: pointer;
+  width: 114px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  margin: 15px 0;
+  &:hover {
+    background-color: rgb(21, 21, 21);
+  }
+}
+
+

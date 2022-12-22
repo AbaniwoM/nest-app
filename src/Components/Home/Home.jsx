@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Button2 } from '../Inputs/Inputs'
+import Ok from "../../Assets/Ok.svg";
 import './Home.scss'
 
 const Home = () => {
@@ -11,8 +12,12 @@ const Home = () => {
                 <Button2 className="bg-bk" title='Pay with NestPay' onClick={() => console.log('clicked')} />
             </div>
 
-            <div id="step2">
-
+            <div id="step5">
+                <div className="tick">
+                    <img src={Ok} alt="tick" />
+                </div>
+                <div>Your payment is successful</div>
+                <button className="nw-bn" onClick={() => console.log('clicked')}>Close Page</button>
             </div>
 
         </div>
