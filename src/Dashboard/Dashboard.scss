@@ -1,0 +1,7 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  &__sidebar {
+    height: 100vh;
+  }
+}
