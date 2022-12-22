@@ -121,7 +121,7 @@ const Home = () => {
                 </form>
             )}
             {steps.step5 && (
-                <div>
+                <div className="form">
                     <div className="tick">
                         <img src={Ok} alt="tick" />
                     </div>
