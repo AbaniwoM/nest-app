@@ -1,11 +1,12 @@
 form {
   width: 325px;
+  text-align: left;
   button,
-  link {
+  text link {
     width: 100%;
     padding: 12px 15px;
     border-radius: 10px;
-    margin: 10px 0;
+    margin-top: 10px;
   }
 }
 
@@ -56,6 +57,12 @@ form {
 
 .err {
   color: red;
-  font-size: 10px;
+  font-size: 13px;
   margin-top: 5px;
+}
+
+.small{
+    font-size: 12px;
+    margin-left: 10px;
+    margin-top: 4px;
 }
